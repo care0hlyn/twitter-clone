@@ -1,0 +1,9 @@
+
+<%= render('layouts/errors', :object => @tweet) %>
+
+  <%= form_for [@user, @tweet], remote: true do |f| %>
+    <div class="field">
+      <%= f.text_area :content, :class => "form-control", :placeholder => "New Tweet"  %>
+    </div><br>
+    <div class="actions"><%= f.submit "+ New Tweet", :class => "btn btn-default btn-xs"  %></div>
+  <% end %>

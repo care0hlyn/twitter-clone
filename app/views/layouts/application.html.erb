@@ -8,7 +8,43 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+
+  <div class="row clearfix">
+      <div class="col-md-12 column">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <%= link_to "Profile", user_path(current_user) %>
+          </li>
+          <li class="disabled">
+            <a href="#">Messages</a>
+          </li>
+          <ul class="nav nav-tabs navbar-right">
+            <% if current_user %>
+                <li><%= link_to "Logged in as #{current_user.email}", user_path(current_user) %></li>
+                <li><%= link_to "Log Out", session_path("current"), method: "delete" %></li>
+              <% else %>
+                <li><%= link_to "Sign Up", new_user_path %></li>
+                <li><%= link_to "Log In", new_session_path %></li>
+              <% end %>
+          </ul>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+
+
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
+    <%= yield %>
+
+</div>
 
 </body>
 </html>
