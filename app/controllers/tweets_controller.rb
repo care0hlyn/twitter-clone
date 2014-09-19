@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @tweets = @user.tweets.all.reverse
+    @tweets = @user.followed_tweets
     @users = User.all
     @tweet = Tweet.new
   end

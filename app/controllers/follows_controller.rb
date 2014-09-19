@@ -2,7 +2,8 @@ class FollowsController < ApplicationController
 
   def index
     @user = User.all
-    @follows = @user.follows.all
+    @stalkings = @user.stalkings.all
+    @follwed_users = @user.followed_users.all
   end
 
   def new

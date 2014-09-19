@@ -23,7 +23,7 @@
 
     <div class="col-md-6 column">
       <br>
-        <div id="new-tweet">
+        <div id="new_tweet">
           <%= render ('tweets/form') %>
         </div>
       </br>
@@ -50,7 +50,7 @@
          <a href="#" class="list-group-item active">Who to follow:</a>
         <div class="list-group-item">
           <% @users.each do |user| %>
-          <p><%= link_to user.name, user_path(user) %> <%= link_to image_tag( "http://www.insidewallstreetreport.com/wp-content/themes/BulletPress_1.1/BulletPressWP/framework/images/twitter-follow.png" ), method: "post", user_follows_path(user) %></p>
+          <p><%= link_to user.name, user_path(user) %> <%= link_to image_tag( "http://www.insidewallstreetreport.com/wp-content/themes/BulletPress_1.1/BulletPressWP/framework/images/twitter-follow.png" ), user_follows_path(user), method: "post" %></p>
           <% end %>
         </div>
 
