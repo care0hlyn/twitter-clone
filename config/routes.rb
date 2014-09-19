@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, :except => [:index] do
     resources :tweets
-    resources :follows
+    resources :follows, :except => [:update, :edit, :show]
   end
 
 end

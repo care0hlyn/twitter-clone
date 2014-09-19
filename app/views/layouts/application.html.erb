@@ -13,15 +13,17 @@
   <div class="row clearfix">
       <div class="col-md-12 column">
         <ul class="nav nav-tabs">
-          <li class="active">
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <%= link_to "Profile", user_path(current_user) %>
-          </li>
-          <li class="disabled">
-            <a href="#">Messages</a>
-          </li>
+          <% if current_user %>
+            <li class="active">
+              <%= link_to "Home", user_tweets_path(current_user) %>
+            </li>
+            <li>
+              <%= link_to "Me", user_path(current_user) %>
+            </li>
+            <li class="disabled">
+              <a href="#">Messages</a>
+            </li>
+          <% end %>
           <ul class="nav nav-tabs navbar-right">
             <% if current_user %>
                 <li><%= link_to "Logged in as #{current_user.email}", user_path(current_user) %></li>
@@ -34,10 +36,6 @@
         </ul>
       </div>
     </div>
-
-
-
-
 
 
     <%= flash[:alert] %>

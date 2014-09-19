@@ -11,4 +11,11 @@ class UserMailer < ActionMailer::Base
 
     mail to: user.email, subject: "Sign Up Confirmation"
   end
+
+  def follow_notification(user, follower_user)
+    @user = user
+    @follower_user = follower_user
+
+    mail to: user.email, subject: "New Follower!"
+  end
 end

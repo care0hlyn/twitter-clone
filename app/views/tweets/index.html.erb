@@ -32,7 +32,7 @@
         <div class="panel panel-default" id="tweets">
           <div class="panel-heading">
             <h3 class="panel-title">
-              @<%= tweet.user.name %>
+              @<%= link_to tweet.user.name, user_path(@user) %>
             </h3>
           </div>
           <div class="panel-body">
@@ -49,7 +49,9 @@
       <div class="list-group">
          <a href="#" class="list-group-item active">Who to follow:</a>
         <div class="list-group-item">
-          Friends
+            <% @users.each do |user| %>
+            <p><%= link_to user.name, user_path(user) %> <%= link_to image_tag( "http://www.insidewallstreetreport.com/wp-content/themes/BulletPress_1.1/BulletPressWP/framework/images/twitter-follow.png" ), user_follows_path(user), method: "post" %></p>
+            <% end %>
         </div>
 
       </div>
